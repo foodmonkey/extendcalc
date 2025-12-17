@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.github.foodmonkey.extendcalc</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MPL-2.0</project_license>
+  <name>Extendcalc</name>
+  <summary>Anextendable calculator for Cosmic DE</summary>
+  <icon type="remote" width="64" height="64" scale="1">
+    https://github.com/foodmonkey/extendcalc/raw/main/resources/icons/hicolor/scalable/apps/icon.svg
+  </icon>
+  <url type="vcs-browser">https://github.com/foodmonkey/extendcalc</url>
+  <launchable type="desktop-id">com.github.foodmonkey.extendcalc.desktop</launchable>
+  <provides>
+    <id>com.github.foodmonkey.extendcalc</id>
+    <binaries>
+      <binary>extendcalc</binary>
+    </binaries>
+  </provides>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </supports>
+  <categories>
+    <category>COSMIC</category>
+  </categories>
+  <keywords>
+    <keyword>COSMIC</keyword>
+  </keywords>
+  <content_rating type="oars-1.1" />
+</component>
+

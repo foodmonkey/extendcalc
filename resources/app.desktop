@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Extendcalc
+Comment=Anextendable calculator for Cosmic DE
+Type=Application
+Icon=com.github.foodmonkey.extendcalc
+Exec=extendcalc %F
+Terminal=false
+StartupNotify=true
+Categories=COSMIC
+Keywords=COSMIC
+MimeType=
