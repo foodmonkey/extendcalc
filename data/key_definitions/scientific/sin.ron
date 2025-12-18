@@ -1,0 +1,10 @@
+//  definition of the scientific/sin key
+
+CalcKey(
+    id: "sin",
+    label: "Sine",
+    tooltip: "Calculate the sine of an angle",
+    qalc_term: " sin ",
+    row: 1,
+    column: 2,
+)

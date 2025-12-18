@@ -1,0 +1,10 @@
+//  definition of the business/GST key
+
+CalcKey(
+    id: "GST",
+    label: "GST",
+    tooltip: "Calculate the GST component of a price",
+    qalc_term: " * 3 / 23",
+    row: 1,
+    column: 2,
+)

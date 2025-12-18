@@ -1,0 +1,10 @@
+//  definition of the conversion/celsius2fahrenheit key
+
+CalcKey(
+    id: "celsius2fahrenheit",
+    label: "C\u{2192}F",
+    tooltip: "Convert Celsius to Fahrenheit",
+    qalc_term: " * 1.8 + 32",
+    row: 1,
+    column: 1,
+)

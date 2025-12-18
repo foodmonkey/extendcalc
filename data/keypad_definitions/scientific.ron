@@ -1,0 +1,14 @@
+//  scientific keypad
+
+CalcKeypad(
+    id: "scientific",
+    label: "Scientific",
+    tooltip: "a collection of scientific related calculations and functions",
+    rows: 1,
+    columns: 3,
+    keys: [
+        KeyRef(library: "scientific", id: "sin",),
+        KeyRef(library: "scientific", id: "cos",),
+        KeyRef(library: "scientific", id: "tan",),
+    ],
+)

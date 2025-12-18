@@ -1,4 +1,4 @@
-app-title = Extendcalc
+app-title = ExtendCalc
 about = About
 repository = Repository
 view = View

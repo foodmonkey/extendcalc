@@ -1,0 +1,10 @@
+//  definition of the scientific/cos key
+
+CalcKey(
+    id: "cos",
+    label: "Cosine",
+    tooltip: "Calculate the cosine of an angle",
+    qalc_term: " cos ",
+    row: 1,
+    column: 1,
+)

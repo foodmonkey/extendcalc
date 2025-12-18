@@ -3,8 +3,8 @@
   <id>com.github.foodmonkey.extendcalc</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MPL-2.0</project_license>
-  <name>Extendcalc</name>
-  <summary>Anextendable calculator for Cosmic DE</summary>
+  <name>ExtendCalc</name>
+  <summary>An extendable calculator for Cosmic DE</summary>
   <icon type="remote" width="64" height="64" scale="1">
     https://github.com/foodmonkey/extendcalc/raw/main/resources/icons/hicolor/scalable/apps/icon.svg
   </icon>

@@ -3,7 +3,7 @@ name = "extendcalc"
 version = "0.1.0"
 edition = "2024"
 license = "MPL-2.0"
-description = "Anextendable calculator for Cosmic DE"
+description = "An extendable calculator for Cosmic DE"
 repository = "https://github.com/foodmonkey/extendcalc"
 
 [dependencies]

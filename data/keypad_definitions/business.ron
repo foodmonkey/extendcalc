@@ -1,0 +1,14 @@
+//  business keypad
+
+CalcKeypad(
+    id: "business",
+    label: "Business",
+    tooltip: "a collection of business related calculations and functions",
+    rows: 1,
+    columns: 3,
+    keys: [
+        KeyRef(library: "business", id: "exGST",),
+        KeyRef(library: "business", id: "GST",),
+        KeyRef(library: "business", id: "plusGST",),
+    ],
+)

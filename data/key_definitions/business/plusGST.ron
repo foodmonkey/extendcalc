@@ -1,0 +1,10 @@
+//  definition of the business/plusGST key
+
+CalcKey(
+    id: "plusGST",
+    label: "+GST",
+    tooltip: "Calculate a price plus GST",
+    qalc_term: " * 1.15",
+    row: 1,
+    column: 3,
+)
