@@ -7,11 +7,13 @@ All the Keypad and Key templates are stored in [RON][ron].
 
 The structure looks like this:
 
+...text
 └── [Keypads](./src/data_handling/models/keypads.rs)
     └── [KeypadRef](./src/data_handling/models/keypad_ref.rs)
         └── [KeypadDef](./src/data_handling/models/keypad_def.rs)
             └── [KeyRef](./src/data_handling/models/key_ref.rs)
                     └── [KeyDef](./src/data_handling/models/keydef.rs)
+...
 
 This allows exensibility of the collection of Keypads and Keys.
 
@@ -31,10 +33,13 @@ Programmatically, the data structures are defined as follows:
 >pub type CalcKey = KeyDef;
 >pub type CalcKeys = Keys;
 ...
+
 All the implementation code is the above modules.
 Which then allows us tto build the final UI stuctures.
 
 The program structures mimic the RON structure with a few differences.
+
+...text
 └── AssembledKeypads
     ├── CalcKeypads
     └── Vec ── AssembledKeypad
@@ -45,6 +50,7 @@ The program structures mimic the RON structure with a few differences.
                        │   ├── Row
                        │   └── Column
                        └── CalcKey
+...
                               
 **NOTE:** We have introduced a Hashmap with a tuple as a key into it.
 Turns the HashMap into a "grid" of Keys. It's not laided out like a
