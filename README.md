@@ -5,10 +5,11 @@ An extendable calculator for Cosmic DE
 
 ## Features
 
-- Calculator comes with a library of pre-defined keypads
-- User can select from this library to have keypads available in the UI
-- Custom keypads can be created by including keys from other keypads
-- New keypads can be defined through an editor
+- Calculator comes with a library of pre-defined Keypads
+- User can select from this library to have Keypads available in the UI
+- The editor can:
+   - Create custom Keypads by including Keys from any Keypad in the library
+   - Create new Keypads with new Key definitions
 - Keeps a history of calculations
 - History can be saved as a named session for later use
 
