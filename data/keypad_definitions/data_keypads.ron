@@ -1,0 +1,12 @@
+//  data keypads list - this is the definitive list of
+//  all keypads that are defined - if it isn't in here
+//  the calculator won't see it
+//  list of keys in the businesskeypad library (directory)
+
+Keypads(
+    keypads: [
+        KeyRef("business",),
+        KeyRef("conversion",),
+        KeyRef("scientific",),
+    ]
+)

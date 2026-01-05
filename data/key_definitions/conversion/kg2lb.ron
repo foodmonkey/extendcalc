@@ -1,10 +1,8 @@
 //  definition of the conversion/kg2lb key
 
-CalcKey(
+Key(
     id: "kg2lb",
     label: "Kilograms to Pounds",
-    tooltip: "Convert Kilograms to Pounds",
+    tooltip_text: "Convert Kilograms to Pounds",
     qalc_term: " * 2.20462",
-    row: 1,
-    column: 3,
 )

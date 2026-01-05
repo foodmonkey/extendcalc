@@ -1,10 +1,8 @@
 //  definition of the conversion/cm2inch key
 
-CalcKey(
+Key(
     id: "cm2inch",
     label: "Centimeters to Inches",
-    tooltip: "Convert Centimeters to Inches",
+    tooltip_text: "Convert Centimeters to Inches",
     qalc_term: " * 0.393701",
-    row: 1,
-    column: 2,
 )

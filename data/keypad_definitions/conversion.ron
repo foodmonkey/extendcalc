@@ -1,14 +1,14 @@
 //  conversion keypad
 
-CalcKeypad(
+Keypad(
     id: "conversion",
     label: "Conversion",
     tooltip: "a collection of conversion related calculations and functions",
     rows: 1,
     columns: 3,
     keys: [
-        KeyRef(library: "conversion", id: "celsius2fahrenheit",),
-        KeyRef(library: "conversion", id: "cm2inch",),
-        KeyRef(library: "conversion", id: "kg2lb",),
+        KeyRef(library: "conversion", id: "celsius2fahrenheit", row: 1, column: 1),
+        KeyRef(library: "conversion", id: "cm2inch", row: 1, column: 2),
+        KeyRef(library: "conversion", id: "kg2lb", row: 1, column: 3),
     ],
 )

@@ -5,18 +5,26 @@
 
 All the Keypad and Key templates are stored in [RON][ron].
 
-The structure looks like this:
+The RON structure looks like this:
 
 ...text
-└── [Keypads](./src/data_handling/models/keypads.rs)
-    └── [KeypadRef](./src/data_handling/models/keypad_ref.rs)
-        └── [KeypadDef](./src/data_handling/models/keypad_def.rs)
-            └── [KeyRef](./src/data_handling/models/key_ref.rs)
-                    └── [KeyDef](./src/data_handling/models/keydef.rs)
+
+    └── [CalcKeypadRef](./src/data_handling/models/keypad_ref.rs)
+        └── [CalcKeypadDef](./src/data_handling/models/keypad_def.rs)
+            └── [CalcKeyRef](./src/data_handling/models/key_ref.rs)
+                    └── [CalcKeyDef](./src/data_handling/models/keydef.rs)
 ...
+And the struture for lists fo Keypads that allows us to build the
+assembled keypads that the UI uses to convert into a grid of buttons
+that can be pressed.
 
-This allows exensibility of the collection of Keypads and Keys.
-
+    └── AssembledKeypads (a collection of AssembledKeypad that the user can switch between)
+        └── AssmbledKeypad
+            └── CalcKeypad data.... (rows, columns, label etc)
+            └── CalcKeyGrid (HashMap)
+                └── GridPosition (the key to HashMap row, column)
+                └── CalcKey              
+  
 **NNOTE:** the RON structure is only parsed at first startup and then stored in
 the UI structures. This are then saved as config data so that at next startup
 there is no need to parse the RON files. If the RON structures have been updated
@@ -25,19 +33,8 @@ structure re-built and stored in the app config data.
 
 ## Implementation
 
-Programmatically, the data structures are defined as follows:
-
-...rust
->pub type CalcKeypad = KeypadDef;
->pub type CalcKeypads = Keypads;
->pub type CalcKey = KeyDef;
->pub type CalcKeys = Keys;
-...
-
-All the implementation code is the above modules.
-Which then allows us tto build the final UI stuctures.
-
 The program structures mimic the RON structure with a few differences.
+Programmatically, the data structures are defined as follows:
 
 ...text
 └── AssembledKeypads

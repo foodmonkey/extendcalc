@@ -1,10 +1,8 @@
 //  definition of the business/plusGST key
 
-CalcKey(
+Key(
     id: "plusGST",
     label: "+GST",
-    tooltip: "Calculate a price plus GST",
+    tooltip_text: "Calculate a price plus GST",
     qalc_term: " * 1.15",
-    row: 1,
-    column: 3,
 )

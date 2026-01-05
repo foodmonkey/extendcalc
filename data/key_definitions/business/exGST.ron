@@ -1,10 +1,8 @@
 //  definition of the business/exGST key
 
-CalcKey(
+Key(
     id: "exGST",
     label: "exGST",
-    tooltip: "Calculate a price exclusive of GST",
+    tooltip_text: "Calculate a price exclusive of GST",
     qalc_term: " / 1.15",
-    row: 1,
-    column: 1,
 )
