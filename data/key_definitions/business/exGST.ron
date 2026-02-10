@@ -1,8 +1,9 @@
 //  definition of the business/exGST key
-
 Key(
-    id: "exGST",
-    label: "exGST",
-    tooltip_text: "Calculate a price exclusive of GST",
-    qalc_term: " / 1.15",
+    base: (
+        id: "exGST",
+        label: "-GST",
+        tooltip_text: "Calculate a price exclusive of GST",
+    ),
+    key_type: Operator(qalc_term: " / 1.15",),
 )

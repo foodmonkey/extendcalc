@@ -1,0 +1,9 @@
+//  definition of the scientific/reciprocal key
+Key(
+    base: (
+        id: "reciprocal",
+        label: "\u{00B9}\u{2044}\u{2093}",
+        tooltip_text: "Reciprocal of a number",
+    ),
+    key_type: Operator(qalc_term: " 1/{} ",),
+)

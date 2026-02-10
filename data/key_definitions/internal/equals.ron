@@ -1,0 +1,8 @@
+//  definition of the numbers / 8
+Key(
+    base: (
+        id: "equals",
+        label: "=",
+    ),
+    key_type: Internal(process: "EQUALS",),
+)

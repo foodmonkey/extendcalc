@@ -1,0 +1,8 @@
+//  definition of the numbers / 7
+Key(
+    base: (
+        id: "seven",
+        label: "7",
+    ),
+    key_type: Operand(value: 7,),
+)

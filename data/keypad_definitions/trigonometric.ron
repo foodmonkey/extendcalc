@@ -1,0 +1,26 @@
+//  trigonometric keypad
+
+Keypad(
+    id: "trigonometric",
+    label: "Trigonometric",
+    tooltip: "a collection of trignometric related calculations and functions",
+    rows: 1,
+    columns: 3,
+    keys: [
+        KeyRef(
+            library: "trigonometric",
+            id: "sin",
+            grid_position: (row: 1, column: 1)
+        ),
+        KeyRef(
+            library: "trigonometric",
+            id: "cos",
+            grid_position: (row: 1, column: 2)
+        ),
+        KeyRef(
+            library: "trigonometric",
+            id: "tan",
+            grid_position: (row: 1, column: 3)
+        ),
+    ],
+)

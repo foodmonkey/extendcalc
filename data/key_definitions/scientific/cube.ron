@@ -1,0 +1,9 @@
+//  definition of the scientific/cube key
+Key(
+    base: (
+        id: "cube",
+        label: "x\u{02B3}",
+        tooltip_text: "Cube a number",
+    ),
+    key_type: Operator(qalc_term: " ^3 ",),
+)

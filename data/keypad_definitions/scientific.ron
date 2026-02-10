@@ -4,11 +4,38 @@ Keypad(
     id: "scientific",
     label: "Scientific",
     tooltip: "a collection of scientific related calculations and functions",
-    rows: 1,
+    rows: 2,
     columns: 3,
     keys: [
-        KeyRef(library: "scientific", id: "sin", row: 1, column: 1),
-        KeyRef(library: "scientific", id: "cos", row: 1, column: 2),
-        KeyRef(library: "scientific", id: "tan", row: 1, column: 3),
+        KeyRef(
+            library: "scientific",
+            id: "square",
+            grid_position: (row: 1, column: 1)
+        ),
+        KeyRef(
+            library: "scientific",
+            id: "squareroot",
+            grid_position: (row: 1, column: 2)
+        ),
+        KeyRef(
+            library: "scientific",
+            id: "power",
+            grid_position: (row: 1, column: 3)
+        ),
+        KeyRef(
+            library: "scientific",
+            id: "cube",
+            grid_position: (row: 2, column: 1)
+        ),
+        KeyRef(
+            library: "scientific",
+            id: "reciprocal",
+            grid_position: (row: 2, column: 2)
+        ),
+        KeyRef(
+            library: "scientific",
+            id: "factorial",
+            grid_position: (row: 2, column: 3)
+        ),
     ],
 )

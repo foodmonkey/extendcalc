@@ -1,0 +1,9 @@
+//  definition of the scientific/factorial key
+Key(
+    base: (
+        id: "factorial",
+        label: "n!",
+        tooltip_text: "Factorial of a number",
+    ),
+    key_type: Operator(qalc_term: "! ",),
+)

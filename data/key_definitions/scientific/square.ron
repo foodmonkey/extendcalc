@@ -1,0 +1,9 @@
+//  definition of the scientific/sin key
+Key(
+    base: (
+        id: "square",
+        label: "x\u{00b2}",
+        tooltip_text: "Square a number",
+    ),
+    key_type: Operator(qalc_term: " ^2 ",),
+)

@@ -1,0 +1,9 @@
+//  definition of the scientific/cos key
+Key(
+    base: (
+        id: "squareroot",
+        label: "\u{221A}",
+        tooltip_text: "Square root of a number",
+    ),
+    key_type: Operator(qalc_term: " sqrt({}) ",),
+)

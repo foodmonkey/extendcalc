@@ -1,8 +1,0 @@
-//  definition of the scientific/cos key
-
-Key(
-    id: "cos",
-    label: "Cosine",
-    tooltip_text: "Calculate the cosine of an angle",
-    qalc_term: " cos ",
-)

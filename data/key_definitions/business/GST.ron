@@ -1,8 +1,9 @@
 //  definition of the business/GST key
-
 Key(
-    id: "GST",
-    label: "GST",
-    tooltip_text: "Calculate the GST component of a price",
-    qalc_term: " * 3 / 23",
+    base: (
+        id: "GST",
+        label: "GST",
+        tooltip_text: "Calculate the GST component of a price",
+    ),
+    key_type: Operator(qalc_term: " * 3 / 23",),
 )

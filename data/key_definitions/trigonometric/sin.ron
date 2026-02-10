@@ -1,0 +1,9 @@
+//  definition of the scientific/sin key
+Key(
+    base: (
+        id: "sin",
+        label: "sin",
+        tooltip_text: "Calculate the sine of an angle",
+    ),
+    key_type: Operator(qalc_term: " sin ",),
+)

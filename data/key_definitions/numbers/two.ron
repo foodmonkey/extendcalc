@@ -1,0 +1,8 @@
+//  definition of the numbers / 2
+Key(
+    base: (
+        id: "two",
+        label: "2",
+    ),
+    key_type: Operand(value: 2,),
+)

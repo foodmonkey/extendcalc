@@ -1,0 +1,9 @@
+//  definition of the scientific/power key
+Key(
+    base: (
+        id: "power",
+        label: "x\u{02B8}",
+        tooltip_text: "Raise x to power y",
+    ),
+    key_type: Operator(qalc_term: " ^ ",),
+)

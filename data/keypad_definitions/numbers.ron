@@ -1,0 +1,59 @@
+//  business keypad
+
+Keypad(
+    id: "numbers",
+    label: "Numbers",
+    tooltip: "The numbers Keypad",
+    rows: 4,
+    columns: 3,
+    keys: [
+        KeyRef(
+            library: "numbers",
+            id: "seven",
+            grid_position: (row: 1, column: 1)),
+        KeyRef(
+            library: "numbers",
+            id: "eight",
+            grid_position: (row: 1, column: 2)),
+        KeyRef(
+            library: "numbers",
+            id: "nine",
+            grid_position: (row: 1, column: 3)),
+        KeyRef(
+            library: "numbers",
+            id: "four",
+            grid_position: (row: 2, column: 1)),
+        KeyRef(
+            library: "numbers",
+            id: "five",
+            grid_position: (row: 2, column: 2)),
+        KeyRef(
+            library: "numbers",
+            id: "six",
+            grid_position: (row: 2, column: 3)),
+        KeyRef(
+            library: "numbers",
+            id: "one",
+            grid_position: (row: 3, column: 1)),
+        KeyRef(
+            library: "numbers",
+            id: "two",
+            grid_position: (row: 3, column: 2)),
+        KeyRef(
+            library: "numbers",
+            id: "three",
+            grid_position: (row: 3, column: 3)),
+        KeyRef(
+            library: "numbers",
+            id: "zero",
+            grid_position: (row: 4, column: 1)),
+        KeyRef(
+            library: "numbers",
+            id: "decimal",
+            grid_position: (row: 4, column: 2)),
+        KeyRef(
+            library: "internal",
+            id: "equals",
+            grid_position: (row: 4, column: 3)),
+    ],
+)

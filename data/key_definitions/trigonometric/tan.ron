@@ -1,0 +1,9 @@
+//  definition of the scientific/tan key
+Key(
+    base: (
+        id: "tan",
+        label: "tan",
+        tooltip_text: "Calculate the tangent of an angle",
+    ),
+    key_type: Operator(qalc_term: " tan ",),
+)

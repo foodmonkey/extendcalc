@@ -1,8 +1,9 @@
 //  definition of the conversion/kg2lb key
-
 Key(
-    id: "kg2lb",
-    label: "Kilograms to Pounds",
-    tooltip_text: "Convert Kilograms to Pounds",
-    qalc_term: " * 2.20462",
+    base: (
+        id: "kg2lb",
+        label: "kg\u{2192}lb",
+        tooltip_text: "Convert Kilograms to Pounds",
+    ),
+    key_type: Operator(qalc_term: " * 2.20462",),
 )

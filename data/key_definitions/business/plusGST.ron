@@ -1,8 +1,9 @@
 //  definition of the business/plusGST key
-
 Key(
-    id: "plusGST",
-    label: "+GST",
-    tooltip_text: "Calculate a price plus GST",
-    qalc_term: " * 1.15",
+    base: (
+        id: "plusGST",
+        label: "+GST",
+        tooltip_text: "Calculate a price plus of GST",
+    ),
+    key_type: Operator(qalc_term: " * 1.15",),
 )

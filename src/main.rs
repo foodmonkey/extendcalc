@@ -2,8 +2,7 @@
 
 pub mod app;
 pub mod config;
-pub mod data_handling;
-pub mod globals;
+pub mod data;
 pub mod i18n;
 pub mod ui;
 

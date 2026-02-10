@@ -1,0 +1,6 @@
+PanelList[
+    panels: [
+        panel_ref: (id: "business",),
+        panel_ref: (id: "scientific",),
+    ],
+]

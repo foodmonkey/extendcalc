@@ -1,8 +1,9 @@
-//  definition of the conversion/celsius2fahrenheit key
-
+//  definition of the conversion celsius to farenheit
 Key(
-    id: "celsius2fahrenheit",
-    label: "C\u{2192}F",
-    tooltip_text: "Convert Celsius to Fahrenheit",
-    qalc_term: " * 1.8 + 32",
+    base: (
+        id: "one",
+        label: "C\u{2192}F",
+        tooltip_text: "Convert Celsius to Fahrenheit",
+    ),
+    key_type: Operator(qalc_term: " * 1.8 + 32",),
 )
