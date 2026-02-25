@@ -1,9 +1,10 @@
 mod build_button_grid;
-mod generate_keypadview_batch;
-mod keypad_container_style;
+mod keypad_loaded;
+mod keypads_loaded;
 mod panel_list_loaded;
+mod panel_loaded;
+mod panels_loaded;
+mod render_keypad_view;
+mod render_panel_view;
 
 pub(crate) use build_button_grid::build_button_grid;
-pub(crate) use generate_keypadview_batch::generate_keypadview_batch;
-pub(crate) use keypad_container_style::keypad_container_style;
-pub(crate) use panel_list_loaded::panel_list_loaded;

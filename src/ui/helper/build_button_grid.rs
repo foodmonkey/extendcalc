@@ -5,20 +5,21 @@ use cosmic::widget::{button, column, container, row, text, tooltip};
 use crate::app::Message;
 use crate::ui::GridPosition;
 use crate::ui::KeyGrid;
-use crate::ui::keypad_container_style;
+use crate::ui::style::keypad_container_style;
 
 pub fn build_button_grid(
     keygrid: &KeyGrid,
     _rows: usize,
     _columns: usize,
 ) -> Element<'static, Message> {
-    println!("in build_button_grid");
     let mut rows: Vec<Element<'static, Message>> = Vec::with_capacity(_rows as usize);
+    rows.push(text("Keypad").into());
 
     for iter_row in 1..=_rows {
         let mut buttons: Vec<Element<'static, Message>> = Vec::with_capacity(_columns as usize);
 
         for iter_column in 1..=_columns {
+            // get the Key metadata
             let grid_index = GridPosition {
                 row: iter_row,
                 column: iter_column,
@@ -36,13 +37,19 @@ pub fn build_button_grid(
                 .height(40.0)
                 .on_press(Message::KeyPressed(key.id.clone()));
 
-            let key_tooltip = text(key.tooltip_text.clone());
+            match key.tooltip_text.as_str() {
+                "" => {
+                    buttons.push(key_button.into());
+                }
+                _ => {
+                    let key_tooltip = text(key.tooltip_text.clone());
+                    let key_with_tooltip = tooltip(key_button, key_tooltip, tooltip::Position::Top)
+                        .gap(10)
+                        .into();
 
-            let key_with_tooltip = tooltip(key_button, key_tooltip, tooltip::Position::Top)
-                .gap(10)
-                .into();
-
-            buttons.push(key_with_tooltip);
+                    buttons.push(key_with_tooltip);
+                }
+            }
         }
 
         rows.push(

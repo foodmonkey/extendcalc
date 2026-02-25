@@ -1,32 +1,42 @@
-// this is the panel view - it represents the structure
-// in the RON files - we have this because of data and
-// view separation
+// this is the panel view - it is the skinny structure for
+// the view - this separaters UI from the RON data
 
-use serde::{Deserialize, Serialize};
-
-use crate::data::DataError;
 use crate::data::KeypadRef;
 use crate::data::Panel;
-use crate::data::PanelRef;
 
 //  bow read our Keypads structure from the RON file
 
-#[derive(Debug, Default, Deserialize, Serialize, Clone)]
+#[derive(Debug, Default, Clone)]
 pub struct PanelView {
     pub id: String,
     pub label: String,
-    pub tooltip: String,
+    pub tooltip_text: String,
+    pub rows: usize,
+    pub columns: usize,
     pub keypads: Vec<KeypadRef>,
 }
 
-impl PanelView {
-    pub fn from_ron(panel_ref: &PanelRef) -> Result<Self, DataError> {
-        let panel = Panel::from_ron(panel_ref)?;
-        Ok(Self {
+impl From<Panel> for PanelView {
+    fn from(panel: Panel) -> Self {
+        Self {
             id: panel.id,
             label: panel.label,
-            tooltip: panel.tooltip,
+            tooltip_text: panel.tooltip_text,
+            rows: panel.rows,
+            columns: panel.columns,
             keypads: panel.keypads,
-        })
+        }
+    }
+}
+
+impl<'a> IntoIterator for &'a PanelView {
+    // What the loop yields: a reference to a KeypadRef
+    type Item = &'a KeypadRef;
+
+    // The engine: we borrow the one already built into Vec
+    type IntoIter = std::slice::Iter<'a, KeypadRef>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.keypads.iter()
     }
 }

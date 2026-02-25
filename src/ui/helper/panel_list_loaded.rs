@@ -1,28 +1,17 @@
-// handler for panel list loaded - just shift the result
-// into the panel list or change state to error and issue
-// error message - if ok then generate a batch of async
-// load panel tasks
+// handler for panellist loaded - we check the result and pass the
+// panel list to the LoadPanels helper
 
 use crate::app::Message;
 use crate::app::UiModel;
 use crate::data::PanelList;
 use cosmic::app::Task;
 
-pub fn panel_list_loaded(ui: &mut UiModel, result: Result<PanelList, String>) -> Task<Message> {
-    let mut task_batch = Vec::new();
+impl UiModel {
+    pub fn panel_list_loaded(&self, result: Result<PanelList, String>) -> Task<Message> {
+        match result {
+            Ok(panel_list) => Task::done(cosmic::action::app(Message::LoadPanels(panel_list))),
 
-    match result {
-        Ok(list) => {
-            ui.panel_list = list;
-
-            for panel_ref in &ui.panel_list.panel_refs {
-                let panel_ref_owned = panel_ref.clone();
-                task_batch.push(Task::future(async move {
-                    cosmic::action::app(Message::LoadPanel(panel_ref_owned))
-                }));
-            }
-            Task::batch(task_batch)
+            Err(error) => Task::done(cosmic::action::app(Message::Error(error))),
         }
-        Err(error) => Task::done(cosmic::action::app(Message::Error(error))),
     }
 }

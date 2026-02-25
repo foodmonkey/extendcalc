@@ -6,8 +6,8 @@ use crate::data::DataDir;
 use crate::data::DataError;
 use crate::data::KeypadRef;
 use crate::data::PanelRef;
-use crate::data::helpers::load_and_parse;
-use crate::data::helpers::path_builder;
+use crate::data::helper::load_and_parse;
+use crate::data::helper::path_builder;
 
 //  bow read our Panel structure from the RON file
 
@@ -15,7 +15,7 @@ use crate::data::helpers::path_builder;
 pub struct Panel {
     pub id: String,
     pub label: String,
-    pub tooltip: String,
+    pub tooltip_text: String,
     pub rows: usize,
     pub columns: usize,
     pub keypads: Vec<KeypadRef>,
@@ -23,7 +23,7 @@ pub struct Panel {
 
 impl Panel {
     pub fn from_ron(panel_ref: &PanelRef) -> Result<Self, DataError> {
-        let panel_path = path_builder(DataDir::PanelDefinitions.as_str(), "", &panel_ref.id);
+        let panel_path = path_builder(DataDir::Data, DataDir::PanelDefinitions, "", &panel_ref.id);
         load_and_parse::<Self>(&panel_path)
     }
 }

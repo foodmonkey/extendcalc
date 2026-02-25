@@ -6,7 +6,7 @@ Keypad(
     tooltip: "a collection of trignometric related calculations and functions",
     rows: 1,
     columns: 3,
-    keys: [
+    key_refs: [
         KeyRef(
             library: "trigonometric",
             id: "sin",

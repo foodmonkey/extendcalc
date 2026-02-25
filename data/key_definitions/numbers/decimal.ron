@@ -1,0 +1,8 @@
+//  definition of the numbers/decimal key
+Key(
+    base: (
+        id: "decimal",
+        label: ".",
+    ),
+    key_type: Operator(qalc_term: ".",),
+)

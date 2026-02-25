@@ -1,8 +1,8 @@
-// KeypadRef - a key into the KeypadDef
+// KeypadRef - a key into the Keypad collection
 use serde::{Deserialize, Serialize};
 
 //  deserialize the keypad reference structure
-#[derive(Debug, Default, Deserialize, Serialize, Clone, Ord, PartialOrd, Eq, PartialEq)]
+#[derive(Debug, Default, Serialize, Deserialize, Hash, Eq, PartialEq, Clone)]
 pub struct KeypadRef {
     pub id: String,
 }

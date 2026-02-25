@@ -6,7 +6,7 @@ Keypad(
     tooltip: "The numbers Keypad",
     rows: 4,
     columns: 3,
-    keys: [
+    key_refs: [
         KeyRef(
             library: "numbers",
             id: "seven",

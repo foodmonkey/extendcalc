@@ -1,44 +1,61 @@
 // the collection of keypads - we implement this as a type
 // rather than a Vec so we can add "get" and "insert" by id
+use indexmap::IndexMap;
+use serde::{Deserialize, Serialize};
 
+use crate::data::KeypadRef;
+use crate::ui::AsyncCountdown;
 use crate::ui::KeypadView;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Default, Deserialize, Serialize, Clone)]
 pub struct Keypads {
-    keypad_views: Vec<KeypadView>,
+    keypad_views: IndexMap<KeypadRef, KeypadView>,
+    countdown: AsyncCountdown,
 }
 
 impl Keypads {
-    pub fn new() -> Self {
-        Keypads {
-            keypad_views: Vec::new(),
-        }
+    pub fn get(&self, keypad_ref: &KeypadRef) -> &KeypadView {
+        self.keypad_views.get(keypad_ref).unwrap()
     }
 
-    pub fn id(&self, keypad_id: &str) -> KeypadView {
+    pub fn insert(&mut self, keypad_ref: &KeypadRef, keypad_view: &KeypadView) {
         self.keypad_views
-            .iter()
-            .find(|keypad| keypad.id == keypad_id)
-            .unwrap()
-            .clone()
-    }
-
-    pub fn insert(&mut self, keypad: KeypadView) {
-        self.keypad_views.push(keypad);
+            .insert(keypad_ref.clone(), keypad_view.clone());
     }
 
     pub fn len(&self) -> usize {
         self.keypad_views.len()
     }
-}
-impl<'a> IntoIterator for &'a Keypads {
-    // What the loop yields: a reference to a Panel
-    type Item = &'a KeypadView;
 
-    // The engine: we borrow the one already built into Vec
-    type IntoIter = std::slice::Iter<'a, KeypadView>;
+    pub fn track_async(&mut self, count: usize) {
+        self.countdown.track(count);
+    }
+
+    pub fn async_remaining(&self) -> usize {
+        self.countdown.remaining()
+    }
+
+    pub fn async_finished(&self) -> bool {
+        self.countdown.is_zero()
+    }
+}
+
+// 1. Immutable Iteration (&Keypads) -> Gives you &KeypadView
+impl<'a> IntoIterator for &'a Keypads {
+    type Item = (&'a KeypadRef, &'a KeypadView);
+    type IntoIter = indexmap::map::Iter<'a, KeypadRef, KeypadView>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.keypad_views.iter()
+    }
+}
+
+// 2. Owned Iteration (Keypads) -> Consumes the map, gives you KeypadView
+impl IntoIterator for Keypads {
+    type Item = (KeypadRef, KeypadView);
+    type IntoIter = indexmap::map::IntoIter<KeypadRef, KeypadView>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.keypad_views.into_iter()
     }
 }

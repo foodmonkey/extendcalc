@@ -4,5 +4,5 @@ Key(
         id: "equals",
         label: "=",
     ),
-    key_type: Internal(process: "EQUALS",),
+    key_type: Internal(operation: "EQUALS",),
 )

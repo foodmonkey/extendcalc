@@ -1,23 +1,24 @@
-//  business keypad
-
+// keypads/business.ron
 Keypad(
     id: "business",
     label: "Business",
-    tooltip: "a collection of business related calculations and functions",
-    rows: 1,
+    tooltip: "a collection of business and related calculations",
+    rows: 2,
     columns: 3,
-    keys: [
+    key_refs: [
         KeyRef(
-            library: "business",
-            id: "exGST",
-            grid_position: (row: 1, column: 1)),
+            key_source: KeySource(
+                library: "business",
+                id: "exGST",
+            ),
+            grid_position: GridPosition(row: 1, column: 1),
+        ),
         KeyRef(
-            library: "business",
-            id: "GST",
-            grid_position: (row: 1, column: 2)),
-        KeyRef(
-            library: "business",
-            id: "plusGST",
-            grid_position: (row: 1, column: 3)),
+            key_source: KeySource(
+                library: "business",
+                id: "plusGST",
+            ),
+            grid_position: GridPosition(row: 1, column: 2),
+        ),
     ],
 )

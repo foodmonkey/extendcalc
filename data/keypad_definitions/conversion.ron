@@ -6,7 +6,7 @@ Keypad(
     tooltip: "a collection of conversion related calculations and functions",
     rows: 1,
     columns: 3,
-    keys: [
+    key_refs [
         KeyRef(
             library: "conversion",
             id: "celsius2fahrenheit",

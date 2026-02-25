@@ -6,7 +6,7 @@ Keypad(
     tooltip: "a collection of scientific related calculations and functions",
     rows: 2,
     columns: 3,
-    keys: [
+    key_refs: [
         KeyRef(
             library: "scientific",
             id: "square",

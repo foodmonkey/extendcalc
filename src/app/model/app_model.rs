@@ -4,12 +4,15 @@ use cosmic::widget::nav_bar;
 
 use crate::app::AppState;
 
+use crate::data::KeyId;
+use crate::data::Keypad;
+use crate::data::KeypadList;
 use crate::data::KeypadRef;
 use crate::data::Panel;
 use crate::data::PanelList;
 use crate::data::PanelRef;
 
-use crate::ui::KeypadView;
+use crate::ui::KeySvg;
 use crate::ui::Keypads;
 use crate::ui::Panels;
 
@@ -18,14 +21,25 @@ pub enum Message {
     LoadPanelList,
     PanelListLoaded(Result<PanelList, String>),
 
-    LoadPanel(PanelRef),
-    PanelLoaded(Result<Panel, String>),
+    LoadPanels(PanelList),
+    LoadPanel(PanelRef, usize),
+    PanelLoaded(Result<Panel, String>, usize),
+    PanelsLoaded,
 
-    GenerateKeypadLoadBatch,
+    LoadKeypads(KeypadList),
+    LoadKeypad(KeypadRef, usize),
+    KeypadLoaded(Result<Keypad, String>, usize),
+    KeypadsLoaded,
 
-    LoadKeypad(KeypadRef),
-    KeypadLoaded(Result<KeypadView, String>),
+    LoadKeyGrids,
+    LoadKey(usize),
+    KeyLoaded(Result<KeyId, String>, usize),
+    GenerateSvg(usize),
+    SvgGenerated(usize),
+    KeyGridsLoaded,
+    SVGsLoaded,
 
+    ChangeAppState(AppState),
     ChangePanel(nav_bar::Id),
     KeyPressed(String),
 
@@ -40,24 +54,18 @@ pub struct AppModel {
 
 pub struct UiModel {
     pub navbar: nav_bar::Model,
-
-    pub panel_list: PanelList,
     pub panels: Panels,
-    pub panels_loaded: usize,
-
     pub keypads: Keypads,
-    pub keypads_loaded: usize,
+    pub key_svg: KeySvg,
 }
 
 impl Default for UiModel {
     fn default() -> Self {
         Self {
             navbar: nav_bar::Model::default(),
-            panel_list: PanelList::default(),
-            panels: Panels::new(),
-            panels_loaded: 0,
-            keypads: Keypads::new(),
-            keypads_loaded: 0,
+            panels: Panels::default(),
+            keypads: Keypads::default(),
+            key_svg: KeySvg::new(),
         }
     }
 }

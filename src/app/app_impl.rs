@@ -6,8 +6,6 @@ use crate::app::AppModel;
 use crate::app::AppState;
 use crate::app::Message;
 use crate::app::UiModel;
-use crate::app::app_update;
-use crate::app::app_view;
 
 impl Application for AppModel {
     type Flags = ();
@@ -43,8 +41,7 @@ impl Application for AppModel {
     fn on_nav_select(&mut self, id: nav_bar::Id) -> Task<Self::Message> {
         match self.ui.navbar.is_active(id) {
             true => Task::none(),
-            //            false => Task::done(cosmic::action::app(Message::ChangeKeypad(id))),
-            false => Task::none(),
+            false => Task::done(cosmic::action::app(Message::ChangePanel(id))),
         }
     }
 
@@ -53,6 +50,6 @@ impl Application for AppModel {
     }
 
     fn view(&self) -> cosmic::Element<'_, Self::Message> {
-        self.app_view()
+        self.ui.view(&self.state)
     }
 }

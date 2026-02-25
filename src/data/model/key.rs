@@ -5,13 +5,14 @@ use std::ops::Deref;
 
 use crate::data::DataDir;
 use crate::data::DataError;
+use crate::data::KeyId;
 use crate::data::KeyRef;
-use crate::data::helpers::load_and_parse;
-use crate::data::helpers::path_builder;
+use crate::data::helper::load_and_parse;
+use crate::data::helper::path_builder;
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct KeyBase {
-    pub id: String,
+    pub id: KeyId,
     pub label: String,
     #[serde(default)]
     pub tooltip_text: String,
@@ -21,7 +22,7 @@ pub struct KeyBase {
 pub enum KeyType {
     Operand { value: f64 },
     Operator { qalc_term: String },
-    Calculator { operation: String },
+    Internal { operation: String },
 }
 
 //  bow read our Keypads structure from the RON file
@@ -34,11 +35,11 @@ pub struct Key {
 
 impl Key {
     pub fn from_ron(key_ref: &KeyRef) -> Result<Self, DataError> {
-        println!("Loading key: {}", key_ref.id);
         let key_path = path_builder(
+            DataDir::Data,
             DataDir::KeyDefinitions.as_str(),
-            &key_ref.library,
-            &key_ref.id,
+            &key_ref.key_id.library,
+            &key_ref.key_id.id,
         );
         load_and_parse::<Self>(&key_path)
     }
