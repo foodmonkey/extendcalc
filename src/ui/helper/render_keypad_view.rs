@@ -10,12 +10,12 @@ use crate::ui::helper::build_button_grid;
 
 impl UiModel {
     pub fn render_keypad_view(&self, keypad_ref: &KeypadRef) -> Element<'static, Message> {
-        let active_keypad = self.keypads.get(&keypad_ref.id);
+        let active_keypad_view = self.keypads.get(&keypad_ref);
 
         build_button_grid(
-            &active_keypad.keygrid,
-            active_keypad.rows,
-            active_keypad.columns,
+            &active_keypad_view.keygrid,
+            active_keypad_view.rows,
+            active_keypad_view.columns,
         )
     }
 }

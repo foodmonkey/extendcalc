@@ -5,14 +5,13 @@ use std::ops::Deref;
 
 use crate::data::DataDir;
 use crate::data::DataError;
-use crate::data::KeyId;
 use crate::data::KeyRef;
 use crate::data::helper::load_and_parse;
 use crate::data::helper::path_builder;
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct KeyBase {
-    pub id: KeyId,
+    pub id: String,
     pub label: String,
     #[serde(default)]
     pub tooltip_text: String,

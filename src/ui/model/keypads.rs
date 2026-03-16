@@ -49,13 +49,3 @@ impl<'a> IntoIterator for &'a Keypads {
         self.keypad_views.iter()
     }
 }
-
-// 2. Owned Iteration (Keypads) -> Consumes the map, gives you KeypadView
-impl IntoIterator for Keypads {
-    type Item = (KeypadRef, KeypadView);
-    type IntoIter = indexmap::map::IntoIter<KeypadRef, KeypadView>;
-
-    fn into_iter(self) -> Self::IntoIter {
-        self.keypad_views.into_iter()
-    }
-}

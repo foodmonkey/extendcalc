@@ -9,6 +9,6 @@ pub fn load_keypad(keypad_ref: KeypadRef, count: usize) -> Task<Message> {
     Task::future(async move {
         let result =
             Keypad::from_ron(&keypad_ref).map_err(|e| format!("fail keypad load: {:?}", e));
-        cosmic::action::app(Message::KeypadLoaded(result, count))
+        cosmic::action::app(Message::KeypadLoaded(result, keypad_ref, count))
     })
 }

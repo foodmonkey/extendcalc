@@ -5,22 +5,24 @@ use cosmic::app::Task;
 
 use crate::app::Message;
 use crate::app::UiModel;
-use crate::data::KeypadData;
+use crate::data::Keypad;
+use crate::data::KeypadRef;
 use crate::ui::KeypadView;
 
 impl UiModel {
     pub fn keypad_loaded(
         &mut self,
-        result: Result<KeypadData, String>,
+        result: Result<Keypad, String>,
+        keypad_ref: KeypadRef,
         count: usize,
     ) -> Task<Message> {
         self.keypads.track_async(count);
 
         let mut tasks_batch = Vec::new();
         match result {
-            Ok(keypad_data) => {
-                let keypad_view = KeypadView::from(keypad_data);
-                self.keypads.push(keypad_view);
+            Ok(keypad) => {
+                let keypad_view = KeypadView::from(keypad);
+                self.keypads.insert(&keypad_ref, &keypad_view);
 
                 tasks_batch.push(Task::none());
             }

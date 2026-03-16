@@ -2,7 +2,7 @@
 // this will allow us to have keys that span a row or a column
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Default, Serialize, Deserialize, Copy, Clone)]
+#[derive(Debug, Default, Serialize, Deserialize, Hash, Eq, PartialEq, Copy, Clone)]
 pub struct GridSpan {
     #[serde(default = "GridSpan::default_span")]
     pub row_span: usize,

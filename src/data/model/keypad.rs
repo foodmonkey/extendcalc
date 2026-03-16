@@ -18,7 +18,7 @@ pub struct Keypad {
     pub tooltip: String,
     pub rows: usize,
     pub columns: usize,
-    pub key_refs: Vec<KeyRef>,
+    pub keys: Vec<KeyRef>,
 }
 
 impl Keypad {

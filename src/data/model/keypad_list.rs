@@ -44,6 +44,6 @@ impl IntoIterator for KeypadList {
     type IntoIter = std::vec::IntoIter<KeypadRef>;
 
     fn into_iter(self) -> Self::IntoIter {
-        self.Keypad_refs.into_iter()
+        self.keypad_refs.into_iter()
     }
 }

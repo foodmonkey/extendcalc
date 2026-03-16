@@ -2,7 +2,6 @@ mod data_dir;
 mod data_error;
 
 mod key;
-mod key_id;
 mod key_ref;
 
 mod keypad;
@@ -17,7 +16,6 @@ pub use data_dir::DataDir;
 pub use data_error::DataError;
 
 pub use key::Key;
-pub use key_id::KeyId;
 pub use key_ref::KeyRef;
 
 pub use keypad::Keypad;

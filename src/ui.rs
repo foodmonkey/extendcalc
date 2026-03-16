@@ -4,8 +4,12 @@ pub mod style;
 pub mod view;
 
 pub(crate) use model::AsyncCountdown;
-pub(crate) use model::KeyGrid;
+pub(crate) use model::KeyGridId;
+pub(crate) use model::KeyGrids;
+
+pub(crate) use model::KeyId;
 pub(crate) use model::KeySvg;
+pub(crate) use model::KeypadId;
 pub(crate) use model::KeypadView;
 pub(crate) use model::Keypads;
 

@@ -15,7 +15,7 @@ impl Panels {
     pub fn get(&self, panel_id: &str) -> &PanelView {
         self.panel_views
             .iter()
-            .find(|pamel| panel.id == panel_id)
+            .find(|panel| panel.id == panel_id)
             .unwrap()
     }
 

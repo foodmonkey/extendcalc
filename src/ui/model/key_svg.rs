@@ -6,12 +6,12 @@
 use cosmic::widget::svg;
 use std::collections::HashMap;
 
-use crate::data::KeyIdentity;
 use crate::ui::AsyncCountdown;
+use crate::ui::KeyId;
 
 #[derive(Debug, Clone)]
 pub struct KeySvg {
-    pub svgs: HashMap<KeyIdentity, svg::Handle>,
+    pub svgs: HashMap<KeyId, svg::Handle>,
     pub countdown: AsyncCountdown,
 }
 
@@ -23,15 +23,15 @@ impl KeySvg {
         }
     }
 
-    pub fn get(&self, id: &KeyIdentity) -> &svg::Handle {
+    pub fn get(&self, id: &KeyId) -> &svg::Handle {
         self.svgs.get(id).unwrap()
     }
 
-    pub fn contains(&mut self, key_identity: &KeyIdentity) -> bool {
+    pub fn contains(&mut self, key_identity: &KeyId) -> bool {
         self.svgs.contains_key(key_identity)
     }
 
-    pub fn insert(&mut self, key_identity: KeyIdentity, handle: svg::Handle) {
+    pub fn insert(&mut self, key_identity: KeyId, handle: svg::Handle) {
         self.svgs.insert(key_identity, handle);
     }
 

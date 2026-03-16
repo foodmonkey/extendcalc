@@ -5,7 +5,7 @@ use crate::ui::GridPosition;
 use crate::ui::GridSpan;
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Default, Deserialize, Serialize, Clone)]
+#[derive(Debug, Default, Serialize, Deserialize, Hash, Eq, PartialEq, Clone)]
 pub struct KeyRef {
     pub key_id: KeyId,
     pub grid_position: GridPosition,

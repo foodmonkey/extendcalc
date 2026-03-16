@@ -4,16 +4,30 @@
 use serde::{Deserialize, Serialize};
 
 use crate::data::KeyRef;
-use crate::data::KeypadRef;
+use crate::data::Keypad;
+use crate::ui::KeypadId;
 
 //  bow read our Keypads structure from the RON file
 
 #[derive(Debug, Default, Deserialize, Serialize, Clone)]
 pub struct KeypadView {
-    pub keypad_ref: KeypadRef,
+    pub id: KeypadId,
     pub label: String,
     pub tooltip: String,
     pub rows: usize,
     pub columns: usize,
-    pub key_refs: Vec<KeyRef>,
+    pub keys: Vec<KeyRef>,
+}
+
+impl From<Keypad> for KeypadView {
+    fn from(keypad: Keypad) -> Self {
+        Self {
+            id: keypad.id.into(),
+            label: keypad.label,
+            tooltip: keypad.tooltip,
+            rows: keypad.rows,
+            columns: keypad.columns,
+            keys: keypad.keys,
+        }
+    }
 }

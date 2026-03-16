@@ -22,8 +22,13 @@ impl AppModel {
 
             Message::LoadKeypads(keypad_list) => data_helper::load_keypads(keypad_list),
             Message::LoadKeypad(keypad_ref, count) => data_helper::load_keypad(keypad_ref, count),
-            Message::KeypadLoaded(result, count) => self.ui.keypad_loaded(result, count),
+            Message::KeypadLoaded(result, keypad_ref, count) => {
+                self.ui.keypad_loaded(result, keypad_ref, count)
+            }
             Message::KeypadsLoaded => self.ui.keypads_loaded(),
+
+            Message::LoadKeyGrids => Task::none(),
+            Message::LoadKey(key_ref, count) => Task::none(),
 
             Message::GenerateSvg(key_identity, render_string, count) => Task::none(),
             Message::SvgGenerated(count) => Task::none(),
